@@ -10,14 +10,14 @@ export default class Meter extends BaseModel {
   @column()
   public customerId: number
   @belongsTo(() => Customer, {
-    foreignKey: 'customerId',
+    foreignKey: 'customer_id',
   })
   public customer: BelongsTo<typeof Customer>
 
   @column()
   public siteId: number
   @belongsTo(() => Site, {
-    foreignKey: 'siteId',
+    foreignKey: 'site_id',
   })
   public site: BelongsTo<typeof Site>
 

@@ -9,7 +9,7 @@ export default class Customers extends BaseSchema {
       table.timestamps(true)
       table.string('name').notNullable()
       table.string('email').notNullable()
-      table.string('vatNumber') // Allow null in case user is onboarding or pending VAT number
+      table.string('vat_number') // Allow null in case user is onboarding or pending VAT number
     })
   }
 

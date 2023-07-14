@@ -11,30 +11,30 @@ export default class Circuit extends BaseModel {
   @column()
   public customerId: number
   @belongsTo(() => Customer, {
-    foreignKey: 'customerId',
+    foreignKey: 'customer_id',
   })
   public customer: BelongsTo<typeof Customer>
 
   @column()
   public siteId: number
   @belongsTo(() => Site, {
-    foreignKey: 'siteId',
+    foreignKey: 'site_id',
   })
   public site: BelongsTo<typeof Site>
 
   @column()
   public meterId: number
   @belongsTo(() => Meter, {
-    foreignKey: 'meterId',
+    foreignKey: 'meter_id',
   })
   public meter: BelongsTo<typeof Meter>
 
+  // TODO fix
+  // @belongsTo(() => Circuit, {
+  //   foreignKey: 'circuit_id',
+  // })
   @column()
   public circuitId: number
-  @hasMany(() => Circuit, {
-    foreignKey: 'circuitId',
-  })
-  public subcategory: HasMany<typeof Circuit>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
