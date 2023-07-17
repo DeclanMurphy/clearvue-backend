@@ -27,7 +27,7 @@ Route.get('health', async ({ response }) => {
   return report.healthy ? response.ok(report) : response.badRequest(report)
 })
 
-Route.resource('sites', 'SiteController').only(['index', 'show']).apiOnly()
-Route.resource('meters', 'MeterController').only(['index', 'show']).apiOnly()
-Route.resource('circuits', 'CircuitController').only(['index', 'show']).apiOnly()
-Route.resource('customers', 'CustomerController').only(['index', 'show']).apiOnly()
+// Route.resource('sites', 'SiteController').only(['index', 'show']).apiOnly()
+// Route.resource('meters', 'MeterController').only(['index', 'show']).apiOnly()
+Route.resource('circuits', 'CircuitsController').only(['index', 'show']).apiOnly()
+// Route.resource('customers', 'CustomerController').only(['index', 'show']).apiOnly()
