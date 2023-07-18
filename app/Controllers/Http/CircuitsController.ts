@@ -21,17 +21,21 @@ export default class CircuitsController {
         throw new NotFoundException('Circuit not found', 404, 'CIRCUIT_NOT_FOUND')
       }
       const data: Array<[Date, number]> = []
-      const start = Date.now() - 1000000
-      for (let i = 0; i < 1000; i++) {
-        data.push([new Date(start - i * 1000), _.random(0, 100)])
+      const start = Date.now() - 1e6
+      for (let i = 0; i < 1e6; i++) {
+        data.push([new Date(start - i), _.random(0, 1000)])
       }
 
-      const x = data.map((e) => e[0])
-      const y = data.map((e) => e[1])
+      const x: Date[] = []
+      const y: Number[] = []
+      for (const [date, value] of data) {
+        x.push(date)
+        y.push(value)
+      }
 
       return {
         circuit,
-        payload: { x, y },
+        payload: { data: { x, y } },
       }
     } catch (error) {
       console.error(error)
